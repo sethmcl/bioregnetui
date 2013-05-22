@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core
+END
+AbstractManager.js
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractManager.js
+END
+Parameter.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/Parameter.js
+END
+ParameterHashStore.js
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/ParameterHashStore.js
+END
+AbstractSpatialWidget.js
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractSpatialWidget.js
+END
+AbstractSpellcheckWidget.js
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractSpellcheckWidget.js
+END
+AbstractWidget.js
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractWidget.js
+END
+Core.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/Core.js
+END
+AbstractFacetWidget.js
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractFacetWidget.js
+END
+AbstractTextWidget.js
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/AbstractTextWidget.js
+END
+ParameterStore.js
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/eil-repo/!svn/ver/328/Users/Lewis/code/bioregnetui/bioregnet-core/src/main/webapp/resources/core/ParameterStore.js
+END

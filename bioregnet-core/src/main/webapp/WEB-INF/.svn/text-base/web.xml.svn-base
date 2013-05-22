@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<!-- Deployment-time attributes  -->
+	<icon>
+	  <small-icon>img/stanford.ico
+	  </small-icon>
+	</icon>
+	<display-name>bioRegnet</display-name>
+	<description>bioRegnet addresses two major issues: System, Structural and Semantic level interoperability
+    amongst multiple information sources in the patent system through the use of several ontologies, and an 
+    Information Retreival framework across multiple heterogeneous domains.</description>
+    
+    <!-- Define context parameters -->
+    <!-- Configure Filters (Servlet 2.3 specification only) -->
+    <!-- Define Filter Mappings (Servlet 2.3 specification only) -->
+    <!-- Configure Application Listeners (Servlet 2.3 specification only) -->
+    
+    
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>greetServlet</servlet-name>
+		<servlet-class>edu.stanford.eil.bioregnet.server.QueryServiceImpl</servlet-class>
+	</servlet>
+
+	<!-- Map a servlet to a URL -->
+	<servlet-mapping>
+		<servlet-name>greetServlet</servlet-name>
+		<url-pattern>/bioregnet</url-pattern> <!-- This will resolve to http://${localhost}:${port}/bioregnet/index.html -->
+	</servlet-mapping>
+	
+	<!-- Define the session timeout value  -->
+	<!-- Define MIME mapping -->
+	
+	<!-- Define welcome pages -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<!--The following error-page element specifies a page that is served
+     in place of the standard HTTP error response pages, in this case
+     HTTP error 404.-->
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+	
+	<!-- Define a JSP tag library descriptor -->
+	<!-- Reference external resources -->
+	<!-- Set up security constraints -->
+	<!-- Set up login authentication -->
+	<!-- Define security roles -->
+	<!-- Set environment entries -->
+	<!-- Reference Enterprise JavaBean (EJB) resources -->
+	<!--  -->
+</web-app>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Welcome to bioRegnet&#153;</title>
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="resources/css/bioregnet.css" media="screen"></link>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/smoothness/jquery-ui.css"></link>
+  <script type="text/javascript" src="resources/js/bioregnet.js"></script>
+  <script type="text/javascript" src="resources/core/Core.js"></script>
+  <script type="text/javascript" src="resources/core/AbstractManager.js"></script>
+  <script type="text/javascript" src="resources/managers/Manager.jquery.js"></script>
+  <script type="text/javascript" src="resources/core/Parameter.js"></script>
+  <script type="text/javascript" src="resources/core/ParameterStore.js"></script>
+  <script type="text/javascript" src="resources/core/AbstractWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/ResultWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/jquery/PagerWidget.js"></script>
+  <script type="text/javascript" src="resources/core/AbstractFacetWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/TagcloudWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/CurrentSearchWidget.9.js"></script>
+  <script type="text/javascript" src="resources/core/AbstractTextWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/AutocompleteWidget.js"></script>
+  <script type="text/javascript" src="resources/widgets/ParameterHistoryStore.js"></script>
+  <script type="text/javascript" src="resources/js/history.js/jquery.history.js"></script>
+  <script type="text/javascript" src="resources/widgets/BioportalFormCompleteWidget.js"></script>
+  <script type="text/javascript" src="http://keg.cs.uvic.ca/ncbo/ontologytree/AC_OETags.js"></script>
+  <!-- script type="text/javascript" src="resources/widgets/BioportalOntologyTreeWidget.js"></script-->
+  <script type="text/javascript">
+    var BP_ontology_id = "all"
+  </script>
+  <script type="text/javascript" src="http://bioportal.bioontology.org/javascripts/widgets/feed_widget.js" 
+    charset="utf-8"></script>
+  <!-- script type="text/javascript" src="resources/widgets/TextWidget.js"></script-->
+  <!-- script type="text/javascript" src="resources/widgets/CountryCodeWidget.js"></script-->
+  <!--script type="text/javascript" src="resources/widgets/CalendarWidget.js"></script-->
+  <!-- script type="text/javascript" src="resources/core/ParameterHashStore.js"></script-->
+  <!-- script type="text/javascript" src="resources/widgets/yui/ParameterYUIStore.js"></script-->
+  <!-- script type="text/javascript" src="http://yui.yahooapis.com/3.9.0/build/yui/yui-min.js"></script-->
+  <!-- script type="text/javascript" src="resources/widgets/BioportalQuickJumpWidget.js" charset="utf-8"></script-->
+</head>
+<body>
+  <div id="wrap"> 
+    <div id="header">
+      <h1>bioRegnet&#153;</h1>
+      <h2>An Ontology-Enhanced Information Retrieval Framework for the Patent System</h2>
+    </div>
+
+    <div class="right">
+      <div id="result">
+        <div id="navigation">
+          <ul id="pager"></ul>
+          <div id="pager-header"></div>
+        </div>
+        <div id="docs"></div>
+      </div>
+    </div>
+
+    <div class="left">
+      <h2>Current Selection</h2>
+      <ul id="selection"></ul>
+
+      <h2>Search</h2>
+      <span id="search_help">(press ESC to close suggestions)</span>
+      <div id="search">
+        <input type="text" id="query" name="query" />
+      </div>
+      
+      <!-- h2>Document Corpus</h2>
+      <input type="checkbox" name="TREC_Corpus" value="1352" id="1352" title="1352" 
+        style="font-weight: normal; padding-left: 10px;" />TREC 2007 Genome Corpus<br /> 
+      <input type="checkbox" name="USPTO_>2006" value="1352" id="1352" title="1352" 
+        style="font-weight: normal; padding-left: 10px;" />USPTO >2006 Corpus<br /> 
+      <input type="checkbox" name="USPTO_1976-2006" value="1352" id="1352" title="1352" 
+        style="font-weight: normal; padding-left: 10px;" />USPTO 1976-2006 Corpus<br /> 
+      <input type="checkbox" name="Court_Cases" value="1352" id="1352" title="1352" 
+        style="font-weight: normal; padding-left: 10px;" />Court Case Corpus<br /> 
+      <input type="checkbox" name="PUBMED" value="1352" id="1352" title="1352" 
+        style="font-weight: normal; padding-left: 10px;" />PUBMED Corpus<br /--> 
+        
+      <h2>Ontology Concept Enrichment</h2>
+      <span id="search_help">(Use BioPortal to add term-selections as field queries)</span>
+      <div id="search">
+        <input type="text" id="bp_form_complete" name="query" class="bp_form_complete-all-name" 
+          data-bp_objecttypes="class,property" data-bp_include_definitions="true"/>
+      </div>
+      <!-- input type="checkbox" name="NCI" value="1032" id="1032" title="1032"
+             style="font-style: normal; padding-left: 10px;" />NCI Thesaurus<br />
+      <input type="checkbox" name="MeSH" value="1351" id="1351"	title="1351" 
+             style="font-style: normal; padding-left: 10px;" />Medical Subject Headings<br /> 
+      <input type="checkbox" name="Disease" value="1101" id="1101" title="1101"
+             style="font-style: normal; padding-left: 10px;" />Disease Ontology<br /> 
+      <input type="checkbox" name="Gene" value="1070" id="1070" title="1070"
+             style="font-style: normal; padding-left: 10px;" />Gene Ontology<br /-->
+      
+      <h2>OntologyTree Concept Browsing</h2>
+      <span id="search_help">(Browse BioPortal ontology trees to add term-selections as field queries)</span>
+      <!-- div id="search">
+        <input class="ontologytree" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+          id="OntologyTree" width="350" height="100%"
+          codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab"/>
+      </div-->
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+          id="OntologyTree" width="350" height="400"
+          codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+        <param name="movie" value="http://keg.cs.uvic.ca/ncbo/ontologytree/OntologyTree.swf" />
+        <param name="quality" value="high" />
+        <param name="bgcolor" value="#ffffff" />
+        <param name="allowScriptAccess" value="always" />
+        <param name="flashVars" value="ontology=&alerterrors=false&canchangeontology=true" />
+        <embed src="http://keg.cs.uvic.ca/ncbo/ontologytree/OntologyTree.swf" quality="high" bgcolor="#ffffff"
+          width="300" height="400" name="OntologyTree" align="middle"
+          play="true"
+          loop="false"
+          allowScriptAccess="always"
+          type="application/x-shockwave-flash"
+          flashVars="ontology=&alerterrors=false&canchangeontology=true"
+          pluginspage="http://www.adobe.com/go/getflashplayer">
+        </embed>
+      </object>
+
+      <h2>MetaData/Keyword Topics</h2>
+      <div class="tagcloud" id="hasDescriptor_meta"></div>
+      
+      <h2>Author Selection</h2>
+      <div class="tagcloud" id="hasAuthor_meta"></div>
+      
+      <h2>Publication Selection</h2>
+      <div class="tagcloud" id="JournalTitle_meta"></div>
+
+      <!-- Currently we don't need to facet by Organisations -->
+      <!-- h2>Top Organisations</h2>
+      <div class="tagcloud" id="organisations"></div-->
+
+      <!-- Currently we don't need to facet by Exchanges -->
+      <!-- h2>Top Exchanges</h2>
+      <div class="tagcloud" id="exchanges"></div-->
+
+      <!-- Currently we don't need to facet by Country -->
+      <!--  h2>By Country</h2>
+      <div id="countries"></div>
+      <div id="preview"></div-->
+
+      <!-- Currently we don't need to facet by Date -->
+      <!-- h2>By Date</h2>
+      <div id="calendar"></div-->
+      
+      <!-- YUI Widget Presentation -->
+      <!-- h2>History Search</h2>
+      <iframe id="yui-history-iframe" src="path-to-existing-asset-in-same-domain"> 
+      </iframe> <!-- style="position:absolute;top:0;left:0;width:1px;height:1px;visibility:hidden" >
+      <input id="yui-history-field" type="hidden"-->
+      
+      <h2>BioPortal Activity Feed</h2>
+      <span id="search_help">(Keep up-to-date with BioPortal ontology activity)</span>
+      <div id="bp_feed_container" > 
+      </div>
+      
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>  
+</body>
+</html>

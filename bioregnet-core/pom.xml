@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>edu.stanford.eil</groupId>
+		<artifactId>bioregnetui</artifactId>
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<artifactId>bioregnet-coreui</artifactId>
+	<packaging>war</packaging>
+	
+	<name>bioRegnet :: Core</name>
+	<url>http://eil.stanford.edu/bioregnet</url>
+	<description>bioRegnet addresses two major issues: System, Structural and Semantic level interoperability
+    amongst multiple information sources in the patent system through the use of several ontologies, and an 
+    Information Retreival framework across multiple heterogeneous domains.
+    </description>
+
+	<organization>
+		<name>Stanford University</name>
+		<url>http://stanford.edu</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>lewis2</id>
+			<name>Lewis John McGibbney</name>
+			<email>lewis2 [at] stanford [dot] edu</email>
+			<roles>
+				<role>PostDoc</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:svn:http://eil.stanford.edu:443/svn/eil-repo/Users/Lewis/code/bioregnet/bioregnet-core</connection>
+		<developerConnection>scm:https://eil.stanford.edu:443/svn/eil-repo/Users/Lewis/code/bioregnet/bioregnet-core</developerConnection>
+		<url>http://eil.stanford.edu:443/svn/eil-repo/Users/Lewis/code/bioregnet/bioregnet-core</url>
+	</scm>
+
+	<build>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/conf/</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</testResource>
+		</testResources>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+					        <resource>
+					          <directory>${basedir}/src/main/resources/</directory>
+					          <targetPath>/resources</targetPath>
+					          <filtering>true</filtering>
+					        </resource>
+						<webXml>${project.basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+						<warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
+						<archiveClasses>false</archiveClasses>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<classpathPrefix />
+							</manifest>
+							<manifestEntries>
+								<url>${project.url}</url>
+								<Implementation-Build>${buildNumber}</Implementation-Build>
+								<Implementation-Title>${project.name}</Implementation-Title>
+								<Implementation-Version>${project.version}</Implementation-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Build-Date>${timestamp}</Build-Date>
+								<SCM>${buildNumber}</SCM>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+				        <groupId>org.apache.maven.plugins</groupId>
+				        <artifactId>maven-javadoc-plugin</artifactId>
+				        <version>${maven-javadoc-plugin.version}</version>
+				        <configuration>
+				        <!-- Apple's JVM sometimes requires more memory -->
+				                <additionalJOption>-J-Xmx1024m</additionalJOption>
+				        </configuration>
+				</plugin>
+				<plugin>
+				    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                      <execution>
+                      <phase>install</phase>
+                        <goals>
+                          <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                          <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                      </execution>
+                    </executions>
+                </plugin>
+			</plugins>
+	</build>
+
+		<dependencies>
+
+			<!-- Solr Dependencies -->
+			<!-- dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-cell</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-clustering</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-core</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-dataimporthandler</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-dataimporthandler-extras</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-solrj</artifactId>
+			</dependency-->
+
+			<!-- Lucene Dependencies -->
+			<!-- dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-analyzers-common</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-core</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-highlighter</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-memory</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-misc</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-queries</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-snowball</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-spellchecker</artifactId>
+			</dependency-->
+
+			<!-- Jena Dependencies -->
+			<!-- dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>jena-core</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>jena-arq</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>jena-iri</artifactId>
+			</dependency-->
+
+			<!-- Commons Dependencies -->
+			<!-- dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+			</dependency>
+			< dependency>
+				<groupId>commons-csv</groupId>
+				<artifactId>commons-csv</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-discovery</groupId>
+				<artifactId>commons-discovery</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</dependency-->
+
+			<!-- Testing Dependencies -->
+			<!-- dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+			</dependency-->
+
+			<!-- Slf4j Dependencies -->
+			<!-- dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-jdk14</artifactId>
+			</dependency-->
+
+          <!--  Virtuoso Dependencies -->
+          <!-- dependency>
+            <groupId>com.openlinksw.virtuoso</groupId>
+            <artifactId>virtjdbc3</artifactId>
+          </dependency>
+          <dependency>
+            <groupId>com.openlinksw.virtuoso</groupId>
+            <artifactId>virt_jena</artifactId>
+          </dependency-->
+
+			<!-- Javax Servlet Dependencies -->
+			<!-- dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+			</dependency-->
+
+			<!-- Woodstox Dependencies -->
+			<!-- dependency>
+				<groupId>org.codehaus.woodstox</groupId>
+				<artifactId>wstx-asl</artifactId>
+			</dependency-->
+
+			<!-- Fifesoft Dependencies -->
+			<!-- dependency>
+				<groupId>com.fifesoft</groupId>
+				<artifactId>rsyntaxtextarea</artifactId>
+			</dependency-->
+
+			<!-- Geronimo Dependencies -->
+			<!-- dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-stax-api_1.2_spec</artifactId>
+			</dependency-->
+
+			<!-- Easymock dependencies -->
+			<!-- dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+			</dependency-->
+			
+			<!-- GXT Dependencies -->
+			<!-- dependency>
+              <groupId>com.extjs</groupId>
+              <artifactId>gxt</artifactId>
+            </dependency-->
+
+		</dependencies>
+</project>
