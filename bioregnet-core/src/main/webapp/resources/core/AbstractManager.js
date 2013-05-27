@@ -67,11 +67,11 @@ AjaxSolr.AbstractManager = AjaxSolr.Class.extend(
     this.store.init();
   },
 
-  /**
-* Set the manager's parameter store.
-*
-* @param {AjaxSolr.ParameterStore} store
-*/
+/**
+ * Set the manager's parameter store.
+ *
+ * @param {AjaxSolr.ParameterStore} store
+ */
   setStore: function (store) {
     store.manager = this;
     this.store = store;

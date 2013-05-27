@@ -60,7 +60,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   
   template: function (doc) {
     var snippet = '';
-    if (doc.hasAbstract_text.length > 300) {
+    if (doc && doc.hasAbstract_text&& doc.hasAbstract_text.length > 300) {
       snippet += 'PMED ID: ' + doc.id + ' ' + doc.hasAbstract_text.substring(0, 300);
       snippet += '<span style="display:none;">' + doc.hasAbstract_text.substring(300);
       snippet += '</span> <a href="#" class="more">more</a>';

@@ -1,5 +1,6 @@
 var Manager;
 
+
 (function ($) {
 
   $(function () {
