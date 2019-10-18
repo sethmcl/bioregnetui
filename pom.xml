@@ -259,7 +259,7 @@
         <!-- Solr Dependencies -->
         <solr.version>4.0.0</solr.version>
         <!-- Lucene Dependencies -->
-        <lucene.version>4.0.0</lucene.version>
+        <lucene.version>8.2.0</lucene.version>
         <lucene.snowball.version>3.0.3</lucene.snowball.version>
         <lucene.spellchecker.version>3.6.2</lucene.spellchecker.version>
         <!-- Jena Dependencies -->
