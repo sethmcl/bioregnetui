@@ -257,7 +257,7 @@
     <properties>
         <!-- Dependencies -->
         <!-- Solr Dependencies -->
-        <solr.version>4.0.0</solr.version>
+        <solr.version>8.2.0</solr.version>
         <!-- Lucene Dependencies -->
         <lucene.version>4.0.0</lucene.version>
         <lucene.snowball.version>3.0.3</lucene.snowball.version>
