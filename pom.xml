@@ -272,7 +272,7 @@
         <commons.discovery.version>0.5</commons.discovery.version>
         <commons.fileupload.version>1.2.2</commons.fileupload.version>
         <commons.httpclient.version>3.1</commons.httpclient.version>
-        <commons.io.version>2.4</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.logging.version>1.1.1</commons.logging.version>
         <!-- Html Parser Dependencies -->
