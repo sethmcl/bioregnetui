@@ -263,7 +263,7 @@
         <lucene.snowball.version>3.0.3</lucene.snowball.version>
         <lucene.spellchecker.version>3.6.2</lucene.spellchecker.version>
         <!-- Jena Dependencies -->
-        <jena.version>2.7.4</jena.version>
+        <jena.version>4.2.0</jena.version>
         <jena.arq.version>2.9.4</jena.arq.version>
         <jena.iri.version>0.9.4</jena.iri.version>
         <!-- Commons Dependencies -->
